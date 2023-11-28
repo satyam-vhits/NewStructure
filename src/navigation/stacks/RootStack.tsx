@@ -8,7 +8,6 @@ const RootStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false,
         animation: 'none',
       }}
       initialRouteName="intro">

@@ -18,8 +18,8 @@ module.exports = {
           '.style.ts',
         ],
         alias: {
-          '@images': './src/assets/imageIndex.ts',
-          '@svges': './src/assets/svgIndex.ts',
+          '@imageIndex': './src/assets/imageIndex.ts',
+          '@svgIndex': './src/assets/svgIndex.ts',
           '@components': './src/components/componentsIndex.ts',
           '@card': './src/components/cardIndex.ts',
           '@i18n': './src/i18n',
