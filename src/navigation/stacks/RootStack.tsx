@@ -8,7 +8,7 @@ const RootStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        animation: 'none',
+        headerShown: false,
       }}
       initialRouteName="intro">
       <Stack.Screen name="login" component={Login} />

@@ -6,6 +6,10 @@ const style = StyleSheet.create({
     flex: 1,
     backgroundColor: color.white,
   },
+  logo: {
+    height: 100,
+    width: 100,
+  },
   contentContainerStyle: {
     marginHorizontal: 20,
     flexGrow: 1,
@@ -35,6 +39,7 @@ const style = StyleSheet.create({
     fontSize: 14,
     color: color.charCoal,
     lineHeight: 21,
+    fontWeight: 'bold',
   },
   socialView: {
     flexDirection: 'row',
