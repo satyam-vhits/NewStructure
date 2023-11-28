@@ -1,0 +1,21 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+  "baseUrl": ".",
+  "paths": {
+    "@images": ["./src/assets/imageIndex.ts"],
+    "@svges": ["./src/assets/svgIndex.ts"],
+    "@components": ["./src/components/componentsIndex.ts"],
+    "@card": ["./src/components/cardIndex.ts"],
+    "@i18n/*": ["./src/i18n/*"],
+    "@navigation/*": ["./src/navigation/*"],
+    "@screenName": ["./src/navigation/screenName.ts"],
+    "@screens/*": ["./src/screens/*"],
+    "@redux/*": ["./src/services/redux/*"],
+    "@api/*": ["./src/services/api/*"],
+    "@config/*": ["./src/services/config/*"],
+    "@theme/*":["./src/theme/*"],
+    "@utility/*": ["./src/utility/*"],
+  },
+  }
+}
