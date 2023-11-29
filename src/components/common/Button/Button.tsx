@@ -13,6 +13,7 @@ const Button: React.FC<ButtonProps> = ({
   isLoading,
   nameTextStyle,
   onPress,
+  disabled,
 }) => {
   return (
     <TouchableOpacity
@@ -23,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
       ]}
       activeOpacity={0.7}
       onPress={onPress}
-      disabled={isLoading}
+      disabled={disabled}
       {...buttonProps}>
       {isLoading && (
         <ActivityIndicator
@@ -46,4 +47,5 @@ export default memo(Button);
 Button.defaultProps = {
   isLoading: false,
   backgroundColor: color.coral,
+  disabled: false,
 };

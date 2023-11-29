@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '@theme/color';
+import font from '@theme/font';
 
 const style = StyleSheet.create({
   container: {
@@ -10,6 +11,7 @@ const style = StyleSheet.create({
     marginLeft: 2,
     fontSize: 14,
     color: colors.JetBlack,
+    fontFamily: font.poppinsMedium,
   },
   inputContainer: {
     backgroundColor: colors.white,
@@ -26,6 +28,8 @@ const style = StyleSheet.create({
     paddingVertical: 10,
     height: 50,
     flex: 1,
+    fontFamily: font.poppinsMedium,
+    color: colors.JetBlack,
   },
   iconContainer: {
     paddingHorizontal: 10,

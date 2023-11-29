@@ -10,4 +10,6 @@ interface inputContainerProps {
   error?: string;
   rightIcon?: boolean;
   onRightIconPress?: (event: GestureResponderEvent) => void;
+  onChangeText?: (text: string) => void;
+  value?: string;
 }

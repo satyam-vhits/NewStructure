@@ -1,12 +1,13 @@
 import {StyleSheet} from 'react-native';
 import colors from '@theme/color';
+import font from '@theme/font';
 
 const style = StyleSheet.create({
   container: {
     flexDirection: 'row',
     height: 50,
     backgroundColor: colors.coral,
-    borderRadius: 30,
+    borderRadius: 0,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -14,6 +15,7 @@ const style = StyleSheet.create({
     fontSize: 16,
     color: colors.white,
     lineHeight: 21,
+    fontFamily: font.poppinsBold,
   },
   indicatorStyle: {
     marginRight: 10,

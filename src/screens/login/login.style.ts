@@ -1,5 +1,6 @@
 import {PixelRatio, StyleSheet} from 'react-native';
 import color from '../../theme/color';
+import font from '@theme/font';
 
 const style = StyleSheet.create({
   container: {
@@ -7,8 +8,13 @@ const style = StyleSheet.create({
     backgroundColor: color.white,
   },
   logo: {
-    height: 100,
-    width: 100,
+    height: 80,
+    width: 80,
+    tintColor: color.coral,
+  },
+  logoContainer: {
+    alignItems: 'center',
+    marginTop: 20,
   },
   contentContainerStyle: {
     marginHorizontal: 20,
@@ -20,7 +26,7 @@ const style = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 30,
     fontWeight: 'bold',
-    marginTop: 90,
+    marginTop: 20,
   },
   button: {
     marginTop: 10,
@@ -29,7 +35,7 @@ const style = StyleSheet.create({
   },
   formView: {
     flex: 1,
-    marginTop: 30,
+    marginTop: 50,
   },
   forgotPwd: {
     alignSelf: 'flex-end',
@@ -39,24 +45,17 @@ const style = StyleSheet.create({
     fontSize: 14,
     color: color.charCoal,
     lineHeight: 21,
-    fontWeight: 'bold',
+    fontFamily: font.poppinsSemiBold,
   },
-  socialView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 20,
-    justifyContent: 'center',
-  },
-  socialLogo: {
-    marginHorizontal: 20,
-  },
+
   signUpContainer: {
-    marginVertical: 20,
+    marginVertical: 30,
   },
   signUpButtonLabel: {
     fontSize: 14,
     color: color.charCoal,
     lineHeight: 21,
+    fontFamily: font.poppinsSemiBold,
   },
   signUpButton: {
     alignItems: 'center',

@@ -13,6 +13,7 @@ import style from './login.style';
 import useLogin from './useLogin';
 import {Button, CustomStatusbar, InputContainer} from '@components';
 import imageIndex from '@imageIndex';
+import SvgIndex from '@svgIndex';
 
 const Login = () => {
   const {
@@ -20,29 +21,36 @@ const Login = () => {
     onClickSignUp,
     secureTextEntry,
     setSecureTextEntry,
+    email,
+    password,
+    setEmail,
+    setPassword,
   } = useLogin();
 
   return (
     <View style={style.container}>
       <CustomStatusbar />
-      <ScrollView
-        persistentScrollbar
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={style.contentContainerStyle}>
-        <KeyboardAvoidingView
-          style={style.container}
-          behavior={Platform.OS == 'ios' ? 'padding' : undefined}>
-          <Image source={imageIndex.Logo} style={style.logo} />
-          <Text style={style.loginText}>
-            Welcome back you've{'\n'}been missed
-          </Text>
+
+      <KeyboardAvoidingView
+        style={style.container}
+        behavior={Platform.OS == 'ios' ? 'padding' : undefined}>
+        <ScrollView
+          persistentScrollbar
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={style.contentContainerStyle}>
+          <View style={style.logoContainer}>
+            <Image source={imageIndex.WhiteLogo} style={style.logo} />
+          </View>
+          <Text style={style.loginText}>Overlays</Text>
           <View id="loginForm" style={style.formView}>
             <InputContainer
               key={'email'}
               label="Email"
               keyboardType="email-address"
               placeholder="CoduoEmail@gmail.com"
+              onChangeText={setEmail}
+              value={email}
             />
             <InputContainer
               key={'password'}
@@ -52,6 +60,8 @@ const Login = () => {
               rightIcon
               secureTextEntry={secureTextEntry}
               onRightIconPress={() => setSecureTextEntry(!secureTextEntry)}
+              onChangeText={setPassword}
+              value={password}
             />
             <TouchableOpacity
               style={style.forgotPwd}
@@ -69,13 +79,11 @@ const Login = () => {
             <TouchableOpacity
               onPress={() => onClickSignUp()}
               style={style.signUpButton}>
-              <Text style={style.signUpButtonLabel}>
-                Don't have an account? signUp
-              </Text>
+              <Text style={style.signUpButtonLabel}>New Customer? Sign-up</Text>
             </TouchableOpacity>
           </View>
-        </KeyboardAvoidingView>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </View>
   );
 };

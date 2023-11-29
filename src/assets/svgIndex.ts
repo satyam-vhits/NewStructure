@@ -1,3 +1,4 @@
 export default {
-  lockIcon: require('./svg/lockIcon.svg'),
+  eye: require('./svg/eye.svg'),
+  closeEye: require('./svg/closeEye.svg'),
 };

@@ -16,4 +16,5 @@ interface ButtonProps {
   onPress?: () => void;
   buttonProps?: TouchableOpacityProps;
   backgroundColor?: ColorValue | undefined;
+  disabled?: boolean;
 }
