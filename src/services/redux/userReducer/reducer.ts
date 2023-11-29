@@ -3,7 +3,12 @@ import {ReducerState} from './interface';
 
 import {fetchUserProfile} from './userAPICall';
 const initialState: ReducerState = {
-  userData: {},
+  userData: {
+    full_name: '',
+    mobile_name: '',
+    email: '',
+    password: '',
+  },
   isLogin: false,
   token: undefined,
   DarkTheme: false,
@@ -16,7 +21,6 @@ const UserData = createSlice({
     loginSuccess: (state, action) => {
       return {
         ...state,
-        // token: action.payload?.token,
         token: 'JHSHGSVVHFGHGSSSS',
         userData: action.payload,
         isLogin: true,
@@ -34,10 +38,6 @@ const UserData = createSlice({
       return {
         ...state,
       };
-    },
-
-    logoutSuccess: state => {
-      return initialState;
     },
   },
 
@@ -59,7 +59,6 @@ const UserData = createSlice({
   },
 });
 
-export const {loginSuccess, logoutSuccess, themeChange, getUserDetails} =
-  UserData.actions;
+export const {loginSuccess, themeChange, getUserDetails} = UserData.actions;
 
 export default UserData.reducer;

@@ -1,5 +1,5 @@
 export interface ReducerState {
-  userData: loginPayload;
+  userData: loginPayload | undefined;
   isLogin: boolean;
   token: string | undefined;
   DarkTheme: boolean;

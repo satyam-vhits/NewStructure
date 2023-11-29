@@ -1,8 +1,9 @@
 import React, {memo} from 'react';
 import {ActivityIndicator, Text, TouchableOpacity} from 'react-native';
 import color from '@theme/color';
-import {ButtonProps} from './buttonProps';
+
 import style from './button.style';
+import {ButtonProps} from './buttonProps';
 
 const Button: React.FC<ButtonProps> = ({
   label,
