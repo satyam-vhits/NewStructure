@@ -1,4 +1,7 @@
+import closeEye from './svg/closeEye.svg';
+import eye from './svg/eye.svg';
+
 export default {
-  eye: require('./svg/eye.svg'),
-  closeEye: require('./svg/closeEye.svg'),
+  eye: eye,
+  closeEye: closeEye,
 };

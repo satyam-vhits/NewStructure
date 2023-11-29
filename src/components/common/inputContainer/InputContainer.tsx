@@ -9,6 +9,7 @@ import React, {FC} from 'react';
 import style from './inputContainer.style';
 import {inputContainerProps} from './inputContainerProps';
 import SvgIndex from '@svgIndex';
+import color from '@theme/color';
 
 const InputContainer: FC<inputContainerProps> = (
   props: inputContainerProps,
@@ -33,7 +34,11 @@ const InputContainer: FC<inputContainerProps> = (
           <TouchableOpacity
             onPress={event => props?.onRightIconPress?.(event)}
             style={style.iconContainer}>
-            {/* {props.secureTextEntry ? <SvgIndex.eye /> : <SvgIndex.closeEye />} */}
+            {props.secureTextEntry ? (
+              <SvgIndex.eye fill={color.JetBlack} />
+            ) : (
+              <SvgIndex.closeEye fill={color.JetBlack} />
+            )}
           </TouchableOpacity>
         )}
       </View>
