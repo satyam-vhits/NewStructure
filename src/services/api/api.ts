@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Snackbar from 'react-native-snackbar';
 import screenName from '../../navigation/screenName';
-import {navigateAndSimpleReset} from '../../utility/navigationService';
+
 import constant from '../config/constant';
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();

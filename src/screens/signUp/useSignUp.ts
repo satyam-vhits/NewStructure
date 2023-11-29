@@ -1,26 +1,32 @@
 import React, {useCallback, useState} from 'react';
-import {errorMessage, formDataType, loginHookProps} from './loginProps';
+import {errorMessage, formDataType} from './signUpProps';
 import validationMessage from '@utility/validation/validationMessage';
 import {checkEmail, checkPassword} from '@utility/validation/stringValidation';
 import {Alert} from 'react-native';
 import {axiosInstance} from '@api/api';
 import constant from '@config/constant';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {RootStackParams} from '@navigation/stacks/rootStackParams';
+import Snackbar from 'react-native-snackbar';
+import color from '@theme/color';
+import {useAppDispatch} from '@hooks/useRedux';
+import {loginSuccess} from '@redux/userReducer/reducer';
 
-const useLogin = () => {
-  const navigation = useNavigation<NavigationProp<RootStackParams>>();
+const useSignUp = () => {
+  const dispatch = useAppDispatch();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [fullName, setFullName] = useState<string>('');
+  const [mobileNumber, setMobileNumber] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [errorMessage, setErrorMessage] = useState<errorMessage>({
     email: null,
     password: null,
+    fullName: null,
+    mobileNumber: null,
   });
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
   const onClickForgotPassword = () => {};
-  const onClickSignUp = () => {
-    navigation.navigate('signUp');
-  };
+  const onClickSignUp = () => {};
 
   const validateAndSubmitForm = useCallback(() => {
     let isValid: boolean = true;
@@ -44,27 +50,55 @@ const useLogin = () => {
       errorMessage.password = null;
     }
 
+    if (!fullName) {
+      isValid = false;
+      errorMessage.fullName = validationMessage.emptyFullName;
+    } else {
+      errorMessage.fullName = null;
+    }
+
+    if (!mobileNumber) {
+      isValid = false;
+      errorMessage.mobileNumber = validationMessage.emptyMobileNumber;
+    } else if (mobileNumber.length != 10) {
+      isValid = false;
+      errorMessage.mobileNumber = validationMessage.invalidMobileNumber;
+    } else {
+      errorMessage.mobileNumber = null;
+    }
+
     if (isValid) {
-      loginApiCall();
+      SignUpApiCall();
     }
 
     setErrorMessage({...errorMessage});
-  }, [email, password]);
+  }, [email, password, fullName, mobileNumber]);
 
-  const loginApiCall = useCallback(() => {
+  const SignUpApiCall = useCallback(() => {
+    setIsLoading(true);
     let formData: formDataType = {
+      full_name: fullName,
+      mobile_number: mobileNumber,
       email: email,
       password: password,
     };
+
     axiosInstance
       .post(constant.users, formData)
       .then(response => {
-        console.log('response::', response.data);
+        Snackbar.show({
+          text: 'Account Created Successfully',
+          backgroundColor: color.charCoal,
+        });
+        dispatch(loginSuccess(response.data));
       })
       .catch(e => {
         console.log('error', e);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
-  }, [email, password]);
+  }, [email, password, fullName, mobileNumber, isLoading]);
 
   return {
     onClickForgotPassword,
@@ -77,7 +111,12 @@ const useLogin = () => {
     setPassword,
     validateAndSubmitForm,
     errorMessage,
+    fullName,
+    setFullName,
+    mobileNumber,
+    setMobileNumber,
+    isLoading,
   };
 };
 
-export default useLogin;
+export default useSignUp;

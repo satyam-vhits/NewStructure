@@ -13,6 +13,24 @@ const style = StyleSheet.create({
     color: colors.JetBlack,
     fontFamily: font.poppinsMedium,
   },
+  dot: {
+    height: 10,
+    width: 10,
+    backgroundColor: colors.indianRed,
+    borderRadius: 6,
+    marginRight: 3,
+  },
+  errorLabel: {
+    marginLeft: 2,
+    fontSize: 14,
+    color: colors.indianRed,
+    fontFamily: font.poppinsSemiBold,
+  },
+  errorContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+  },
   inputContainer: {
     backgroundColor: colors.white,
     height: 50,

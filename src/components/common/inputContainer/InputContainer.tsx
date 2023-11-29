@@ -16,8 +16,22 @@ const InputContainer: FC<inputContainerProps> = (
 ) => {
   return (
     <View style={style.container}>
-      <Text style={style.labelStyle}>{props.label}</Text>
-      <View style={style.inputContainer}>
+      <Text
+        style={[
+          style.labelStyle,
+          {
+            color: props.error ? color.indianRed : color.JetBlack,
+          },
+        ]}>
+        {props.label}
+      </Text>
+      <View
+        style={[
+          style.inputContainer,
+          {
+            borderColor: props.error ? color.indianRed : color.JetBlack,
+          },
+        ]}>
         <TextInput
           style={style.inputStyle}
           autoCorrect={props.autoCorrect}
@@ -28,6 +42,7 @@ const InputContainer: FC<inputContainerProps> = (
           onChangeText={props.onChangeText}
           value={props.value}
           autoCapitalize="none"
+          maxLength={props.maxLength}
           {...props}
         />
         {props?.rightIcon && (
@@ -42,6 +57,12 @@ const InputContainer: FC<inputContainerProps> = (
           </TouchableOpacity>
         )}
       </View>
+      {props.error && (
+        <View style={style.errorContainer}>
+          <View style={style.dot} />
+          <Text style={style.errorLabel}>{props.error}</Text>
+        </View>
+      )}
     </View>
   );
 };

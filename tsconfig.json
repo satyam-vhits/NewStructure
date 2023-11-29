@@ -6,6 +6,7 @@
     "@imageIndex": ["./src/assets/imageIndex.ts"],
     "@svgIndex": ["./src/assets/svgIndex.ts"],
     "@components": ["./src/components/componentsIndex.ts"],
+    "@hooks/*": ["./src/hooks/*"],
     "@card": ["./src/components/cardIndex.ts"],
     "@i18n/*": ["./src/i18n/*"],
     "@navigation/*": ["./src/navigation/*"],

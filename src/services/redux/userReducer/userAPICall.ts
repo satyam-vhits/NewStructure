@@ -7,6 +7,7 @@ import {getUserDetails} from './reducer';
  * users = your reducer name
  * fetchUserProfile action and function name
  */
+
 const fetchUserProfile = createAsyncThunk(
   'users/fetchUserProfile',
   async (token: string | undefined, thunkAPI) => {

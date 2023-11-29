@@ -9,13 +9,12 @@ import {
   Platform,
   SafeAreaView,
 } from 'react-native';
-import style from './login.style';
-import useLogin from './useLogin';
+import style from './signUp.style';
+import useLogin from './useSignUp';
 import {Button, CustomStatusbar, InputContainer} from '@components';
 import imageIndex from '@imageIndex';
-import SvgIndex from '@svgIndex';
 
-const Login = () => {
+const SignUp = () => {
   const {
     onClickForgotPassword,
     onClickSignUp,
@@ -25,8 +24,13 @@ const Login = () => {
     password,
     setEmail,
     setPassword,
+    fullName,
+    setFullName,
+    mobileNumber,
+    setMobileNumber,
     errorMessage,
     validateAndSubmitForm,
+    isLoading,
   } = useLogin();
 
   return (
@@ -46,6 +50,25 @@ const Login = () => {
           </View>
           <Text style={style.loginText}>Overlays</Text>
           <View id="loginForm" style={style.formView}>
+            <InputContainer
+              key={'name'}
+              label="Full Name"
+              placeholder="Shlok Srivastava"
+              onChangeText={setFullName}
+              value={fullName}
+              error={errorMessage.fullName}
+            />
+            <InputContainer
+              key={'mobile'}
+              label="Mobile Number"
+              placeholder="9999999999"
+              keyboardType="phone-pad"
+              onChangeText={setMobileNumber}
+              value={mobileNumber}
+              error={errorMessage.mobileNumber}
+              maxLength={10}
+            />
+
             <InputContainer
               key={'email'}
               label="Email"
@@ -67,16 +90,13 @@ const Login = () => {
               value={password}
               error={errorMessage.password}
             />
-            <TouchableOpacity
-              style={style.forgotPwd}
-              onPress={() => onClickForgotPassword()}>
-              <Text style={style.forgotPwdLabel}>Forgot Password?</Text>
-            </TouchableOpacity>
+
             <Button
               key={'loginButton'}
-              label="Login"
+              label="Create An Account"
               containerStyle={style.button}
               onPress={() => validateAndSubmitForm()}
+              isLoading={isLoading}
             />
           </View>
 
@@ -84,7 +104,9 @@ const Login = () => {
             <TouchableOpacity
               onPress={() => onClickSignUp()}
               style={style.signUpButton}>
-              <Text style={style.signUpButtonLabel}>New Customer? Sign-up</Text>
+              <Text style={style.signUpButtonLabel}>
+                Overlay existing Customer? login
+              </Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -93,4 +115,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

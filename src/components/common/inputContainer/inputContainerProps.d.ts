@@ -7,9 +7,10 @@ interface inputContainerProps {
   enablesReturnKeyAutomatically?: boolean;
   keyboardType?: KeyboardType;
   secureTextEntry?: boolean;
-  error?: string;
+  error?: string | null;
   rightIcon?: boolean;
   onRightIconPress?: (event: GestureResponderEvent) => void;
   onChangeText?: (text: string) => void;
   value?: string;
+  maxLength?: number;
 }

@@ -1,10 +1,12 @@
-export interface loginHookProps {}
+export interface signUpHookProps {}
 
-interface loginProps {}
+interface signUpProps {}
 
 type errorMessage = {
   email: string | null;
   password: string | null;
+  fullName: string | null;
+  mobileNumber: string | null;
 };
 
 type formDataType = {

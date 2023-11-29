@@ -16,7 +16,8 @@ const UserData = createSlice({
     loginSuccess: (state, action) => {
       return {
         ...state,
-        token: action.payload?.token,
+        // token: action.payload?.token,
+        token: 'JHSHGSVVHFGHGSSSS',
         userData: action.payload,
         isLogin: true,
       };

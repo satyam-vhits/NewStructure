@@ -22,6 +22,7 @@ module.exports = {
           '@svgIndex': './src/assets/svgIndex.ts',
           '@components': './src/components/componentsIndex.ts',
           '@card': './src/components/cardIndex.ts',
+          '@hooks': './src/hooks',
           '@i18n': './src/i18n',
           '@navigation': './src/navigation',
           '@screenName': './src/navigation/screenName.ts',
