@@ -1,16 +1,23 @@
-import Colors from '@theme/color';
+import colors from '@theme/color';
 import { StyleSheet } from 'react-native';
 
 export const defaultStyles = StyleSheet.create({
   loadingOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: colors.backdropped,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 1,
   },
   pageContainer: {
     flex: 1,
-    backgroundColor: Colors.white,
+    backgroundColor: colors.white,
+  },
+  block: {
+    marginHorizontal: 20,
+    padding: 14,
+    backgroundColor: colors.white,
+    borderRadius: 16,
+    gap: 20,
   },
 });
