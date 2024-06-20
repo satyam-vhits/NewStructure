@@ -18,7 +18,7 @@ const UserData = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    loginSuccess: (state, action) => {
+    loginSuccess: (state: ReducerState, action: { payload: any; }) => {
       return {
         ...state,
         token: 'JHSHGSVVHFGHGSSSS',
@@ -27,29 +27,29 @@ const UserData = createSlice({
       };
     },
 
-    themeChange: (state, action: PayloadAction<boolean>) => {
+    themeChange: (state: any, action: PayloadAction<boolean>) => {
       return {
         ...state,
         DarkTheme: action.payload,
       };
     },
 
-    getUserDetails: (state, action: PayloadAction<boolean>) => {
+    getUserDetails: (state: any, action: PayloadAction<boolean>) => {
       return {
         ...state,
       };
     },
   },
 
-  extraReducers: builder => {
-    builder.addCase(fetchUserProfile.fulfilled, (state, action) => {
+  extraReducers: (builder: { addCase: (arg0: any, arg1: { (state: any, action: any): any; (state: any, action: any): any; (): ReducerState; }) => void; }) => {
+    builder.addCase(fetchUserProfile.fulfilled, (state: any, action: { payload: any; }) => {
       return {
         ...state,
         userData: action.payload,
       };
     });
 
-    builder.addCase(fetchUserProfile.rejected, (state, action) => {
+    builder.addCase(fetchUserProfile.rejected, (state: any, action: any) => {
       return {
         ...state,
       };
